@@ -35,7 +35,7 @@ A real-time Utah Jazz fan engagement platform built for the Seagate hackathon. F
 ### Clone and Run
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/EthanCobler/Utah-Jazz-Hackathon.git
 cd Utah-Jazz-Hackathon
 npm install
 npm run dev
