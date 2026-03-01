@@ -1,1 +1,1 @@
-# Utah-Jazz-Hackathon
+# Utah-Jazz-Hackathon 2026
