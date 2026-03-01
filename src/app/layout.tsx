@@ -28,7 +28,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-bg">
-        <main className="max-w-lg mx-auto pb-20">{children}</main>
+        <main className="w-full max-w-screen-xl px-4 mx-auto pb-20 sm:px-6 lg:px-8">{children}</main>
         <BottomNav />
       </body>
     </html>
