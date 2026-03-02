@@ -31,8 +31,8 @@ const api = new BalldontlieAPI({
 // The Jazz's team ID in the balldontlie database
 export const JAZZ_TEAM_ID = 29;
 
-// The current NBA season (2024 = the 2024-25 season)
-export const CURRENT_SEASON = 2024;
+// The current NBA season (2025 = the 2025-26 season)
+export const CURRENT_SEASON = 2025;
 
 
 // ------------------------------------------------------------
