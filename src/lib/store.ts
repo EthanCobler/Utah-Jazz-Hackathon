@@ -1,7 +1,7 @@
 "use client";
 
 import { create } from "zustand";
-import type { Shot, PlayByPlayEvent, Poll, KeyMoment } from "@/data/mock";
+import type { Shot, PlayByPlayEvent, Poll, KeyMoment } from "@/lib/types";
 import { generateShots, generatePlayByPlay, mockPolls, mockKeyMoments } from "@/data/mock";
 
 interface GameState {
