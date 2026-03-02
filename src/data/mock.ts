@@ -2,14 +2,14 @@ import type { Player, Shot, PlayByPlayEvent, Poll, KeyMoment, Badge, GameRecap, 
 
 // Jazz Players (2025-26 roster)
 export const jazzPlayers: Player[] = [
-  { id: 1, name: "Lauri Markkanen", number: "23", position: "PF", ppg: 25.6, rpg: 8.4, apg: 2.1, image: "LM" },
-  { id: 2, name: "Collin Sexton", number: "2", position: "PG", ppg: 18.3, rpg: 2.8, apg: 5.2, image: "CS" },
-  { id: 3, name: "Jordan Clarkson", number: "00", position: "SG", ppg: 16.8, rpg: 3.4, apg: 4.1, image: "JC" },
-  { id: 4, name: "Walker Kessler", number: "24", position: "C", ppg: 10.2, rpg: 9.8, apg: 1.1, image: "WK" },
-  { id: 5, name: "John Collins", number: "20", position: "PF", ppg: 14.5, rpg: 6.2, apg: 1.8, image: "JCO" },
-  { id: 6, name: "Keyonte George", number: "3", position: "PG", ppg: 13.1, rpg: 3.1, apg: 5.8, image: "KG" },
-  { id: 7, name: "Taylor Hendricks", number: "0", position: "SF", ppg: 8.4, rpg: 4.2, apg: 1.3, image: "TH" },
-  { id: 8, name: "Brice Sensabaugh", number: "28", position: "SF", ppg: 9.7, rpg: 2.9, apg: 1.0, image: "BS" },
+  { id: 1, name: "Lauri Markkanen", number: "23", position: "PF", ppg: 26.7, rpg: 6.9, apg: 2.1, image: "LM" },
+  { id: 2, name: "Ace Bailey", number: "19", position: "F", ppg: 11.9, rpg: 4.1, apg: 1.7, image: "AB" },
+  { id: 3, name: "Isaiah Collier", number: "8", position: "G", ppg: 11.0, rpg: 2.5, apg: 7.3, image: "IC" },
+  { id: 4, name: "Walker Kessler", number: "24", position: "C", ppg: 14.4, rpg: 10.8, apg: 3.0, image: "WK" },
+  { id: 5, name: "Cody Williams", number: "5", position: "F", ppg: 5.8, rpg: 2.4, apg: 1.0, image: "CW" },
+  { id: 6, name: "Keyonte George", number: "3", position: "PG", ppg: 23.6, rpg: 3.9, apg: 6.5, image: "KG" },
+  { id: 7, name: "Blake Hinson", number: "2", position: "F", ppg: 8.5, rpg: 2.5, apg: 0.3, image: "BH" },
+  { id: 8, name: "Brice Sensabaugh", number: "28", position: "SF", ppg: 12.8, rpg: 3.0, apg: 1.5, image: "BS" },
 ];
 
 // Opponent Players (Lakers)
