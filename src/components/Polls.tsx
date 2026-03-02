@@ -28,7 +28,7 @@ export default function Polls() {
         return (
           <motion.div
             key={poll.id}
-            className="bg-white rounded-xl p-4 shadow-sm border border-gray-100"
+            className="bg-white dark:bg-dark-surface rounded-xl p-4 shadow-sm border border-gray-100 dark:border-dark-border"
             layout
           >
             <div className="flex items-center justify-between mb-1">
@@ -36,13 +36,13 @@ export default function Polls() {
                 LIVE POLL
               </span>
               {poll.expiresIn && !hasVoted && (
-                <span className="text-xs text-text-secondary font-mono">
+                <span className="text-xs text-text-secondary dark:text-dark-text-secondary font-mono">
                   {poll.expiresIn}s
                 </span>
               )}
             </div>
 
-            <p className="text-xs text-text-secondary mb-2">{poll.context}</p>
+            <p className="text-xs text-text-secondary dark:text-dark-text-secondary mb-2">{poll.context}</p>
             <p className="font-semibold mb-3">{poll.question}</p>
 
             <div className="space-y-2">
@@ -63,8 +63,8 @@ export default function Polls() {
                       hasVoted
                         ? isSelected
                           ? "border-2 border-jazz-gold bg-jazz-gold/5"
-                          : "border border-gray-200 bg-gray-50"
-                        : "border-2 border-gray-200 hover:border-jazz-gold active:scale-[0.98]"
+                          : "border border-gray-200 dark:border-dark-border bg-gray-50 dark:bg-dark-bg"
+                        : "border-2 border-gray-200 dark:border-dark-border hover:border-jazz-gold active:scale-[0.98]"
                     }`}
                     whileTap={!hasVoted ? { scale: 0.97 } : undefined}
                   >
@@ -72,7 +72,7 @@ export default function Polls() {
                     {hasVoted && (
                       <motion.div
                         className={`absolute inset-0 ${
-                          isSelected ? "bg-jazz-gold/10" : "bg-gray-100"
+                          isSelected ? "bg-jazz-gold/10" : "bg-gray-100 dark:bg-dark-border"
                         }`}
                         initial={{ width: 0 }}
                         animate={{ width: `${pct}%` }}
@@ -83,7 +83,7 @@ export default function Polls() {
                     <div className="relative flex items-center justify-between">
                       <span
                         className={`text-sm font-medium ${
-                          isSelected ? "text-jazz-navy" : ""
+                          isSelected ? "text-jazz-navy dark:text-jazz-gold" : ""
                         }`}
                       >
                         {option.label}
@@ -103,7 +103,7 @@ export default function Polls() {
               })}
             </div>
 
-            <div className="flex items-center justify-between mt-3 text-xs text-text-secondary">
+            <div className="flex items-center justify-between mt-3 text-xs text-text-secondary dark:text-dark-text-secondary">
               <span>{poll.totalVotes.toLocaleString()} votes</span>
               {hasVoted && (
                 <motion.span
@@ -139,16 +139,16 @@ export default function Polls() {
       {/* Completed Polls */}
       {completedPolls.length > 0 && (
         <div>
-          <h3 className="text-sm font-semibold text-text-secondary mb-3">
+          <h3 className="text-sm font-semibold text-text-secondary dark:text-dark-text-secondary mb-3">
             Completed Polls
           </h3>
           {completedPolls.map((poll) => (
             <div
               key={poll.id}
-              className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 mb-3"
+              className="bg-white dark:bg-dark-surface rounded-xl p-4 shadow-sm border border-gray-100 dark:border-dark-border mb-3"
             >
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-xs font-semibold text-text-secondary bg-gray-100 px-2 py-0.5 rounded-full">
+                <span className="text-xs font-semibold text-text-secondary dark:text-dark-text-secondary bg-gray-100 dark:bg-dark-border px-2 py-0.5 rounded-full">
                   COMPLETED
                 </span>
               </div>
@@ -168,12 +168,12 @@ export default function Polls() {
                       className={`relative overflow-hidden rounded-lg p-2.5 ${
                         isCorrect
                           ? "border-2 border-court-green bg-court-green/5"
-                          : "border border-gray-200"
+                          : "border border-gray-200 dark:border-dark-border"
                       }`}
                     >
                       <div
                         className={`absolute inset-0 ${
-                          isCorrect ? "bg-court-green/10" : "bg-gray-50"
+                          isCorrect ? "bg-court-green/10" : "bg-gray-50 dark:bg-dark-border"
                         }`}
                         style={{ width: `${pct}%` }}
                       />
@@ -191,7 +191,7 @@ export default function Polls() {
                 })}
               </div>
 
-              <div className="text-xs text-text-secondary mt-2">
+              <div className="text-xs text-text-secondary dark:text-dark-text-secondary mt-2">
                 {poll.totalVotes.toLocaleString()} total votes
               </div>
             </div>

@@ -30,7 +30,7 @@ export default function QuarterRecap() {
               className={`flex-1 py-3 rounded-xl text-center transition-all ${
                 hasMoments
                   ? "bg-jazz-navy text-white hover:bg-jazz-purple"
-                  : "bg-gray-100 text-text-secondary"
+                  : "bg-gray-100 dark:bg-dark-border text-text-secondary dark:text-dark-text-secondary"
               }`}
             >
               <div className="text-xs font-semibold mb-0.5">Q{q}</div>
@@ -50,14 +50,14 @@ export default function QuarterRecap() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.05 }}
-            className="bg-white rounded-xl p-4 shadow-sm border border-gray-100"
+            className="bg-white dark:bg-dark-surface rounded-xl p-4 shadow-sm border border-gray-100 dark:border-dark-border"
           >
             <div className="flex items-start justify-between mb-2">
               <div className="flex items-center gap-2">
                 <span className="text-xs font-semibold text-white bg-jazz-navy px-2 py-0.5 rounded-full">
                   Q{moment.quarter}
                 </span>
-                <span className="text-xs text-text-secondary font-mono">
+                <span className="text-xs text-text-secondary dark:text-dark-text-secondary font-mono">
                   {moment.time}
                 </span>
               </div>
@@ -66,20 +66,20 @@ export default function QuarterRecap() {
                   moment.significance >= 9
                     ? "bg-jazz-gold/20 text-jazz-gold"
                     : moment.significance >= 7
-                    ? "bg-jazz-navy/10 text-jazz-navy"
-                    : "bg-gray-100 text-text-secondary"
+                    ? "bg-jazz-navy/10 dark:bg-jazz-navy/30 text-jazz-navy dark:text-jazz-gold"
+                    : "bg-gray-100 dark:bg-dark-border text-text-secondary dark:text-dark-text-secondary"
                 }`}
               >
                 {moment.significance}/10
               </div>
             </div>
             <h3 className="font-bold text-sm mb-1">{moment.title}</h3>
-            <p className="text-xs text-text-secondary leading-relaxed">
+            <p className="text-xs text-text-secondary dark:text-dark-text-secondary leading-relaxed">
               {moment.description}
             </p>
             <div className="mt-2 flex items-center gap-2">
-              <div className="w-6 h-6 bg-jazz-navy/10 rounded-full flex items-center justify-center">
-                <span className="text-[8px] font-bold text-jazz-navy">
+              <div className="w-6 h-6 bg-jazz-navy/10 dark:bg-jazz-navy/30 rounded-full flex items-center justify-center">
+                <span className="text-[8px] font-bold text-jazz-navy dark:text-jazz-gold">
                   {moment.playerName
                     .split(" ")
                     .map((n) => n[0])
@@ -104,18 +104,18 @@ export default function QuarterRecap() {
               onClick={() => setIsOpen(false)}
             />
             <motion.div
-              className="fixed bottom-0 left-0 right-0 z-50 bg-white rounded-t-3xl max-h-[60vh] overflow-y-auto"
+              className="fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-dark-surface rounded-t-3xl max-h-[60vh] overflow-y-auto"
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
               exit={{ y: "100%" }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
               <div className="p-4">
-                <div className="w-12 h-1.5 bg-gray-200 rounded-full mx-auto mb-4" />
+                <div className="w-12 h-1.5 bg-gray-200 dark:bg-dark-border rounded-full mx-auto mb-4" />
                 <h3 className="font-bold text-lg mb-1">
                   Quarter {selectedQuarter} Key Moments
                 </h3>
-                <p className="text-xs text-text-secondary mb-4">
+                <p className="text-xs text-text-secondary dark:text-dark-text-secondary mb-4">
                   AI-generated recap of the top moments
                 </p>
 
@@ -126,7 +126,7 @@ export default function QuarterRecap() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: i * 0.15 }}
-                      className="bg-bg rounded-xl p-4"
+                      className="bg-bg dark:bg-dark-bg rounded-xl p-4"
                     >
                       <div className="flex items-center gap-2 mb-2">
                         <div
@@ -144,12 +144,12 @@ export default function QuarterRecap() {
                           <div className="font-bold text-sm">
                             {moment.title}
                           </div>
-                          <div className="text-[10px] text-text-secondary">
+                          <div className="text-[10px] text-text-secondary dark:text-dark-text-secondary">
                             {moment.time} remaining
                           </div>
                         </div>
                       </div>
-                      <p className="text-xs text-text-secondary leading-relaxed">
+                      <p className="text-xs text-text-secondary dark:text-dark-text-secondary leading-relaxed">
                         {moment.description}
                       </p>
                     </motion.div>

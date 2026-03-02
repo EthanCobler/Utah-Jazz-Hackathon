@@ -36,8 +36,8 @@ export default function PlayByPlay() {
             event.isScoring
               ? event.team === "jazz"
                 ? "bg-jazz-gold/5 border-l-3 border-jazz-gold"
-                : "bg-gray-50 border-r-3 border-gray-300"
-              : "bg-white"
+                : "bg-gray-50 dark:bg-dark-border/50 border-r-3 border-gray-300 dark:border-dark-text-secondary"
+              : "bg-white dark:bg-dark-surface"
           } ${event.team === "opponent" ? "flex-row-reverse text-right" : ""}`}
         >
           <div className="flex-shrink-0 text-lg mt-0.5">
@@ -46,11 +46,11 @@ export default function PlayByPlay() {
           <div className="flex-1 min-w-0">
             <p className="text-sm font-medium">{event.description}</p>
             <div className="flex items-center gap-2 mt-1">
-              <span className="text-xs text-text-secondary">
+              <span className="text-xs text-text-secondary dark:text-dark-text-secondary">
                 Q{event.quarter} · {event.time}
               </span>
               {event.isScoring && (
-                <span className="font-mono text-xs font-bold text-jazz-navy">
+                <span className="font-mono text-xs font-bold text-jazz-navy dark:text-jazz-gold">
                   {event.score.jazz} - {event.score.opponent}
                 </span>
               )}

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useGameStore } from "@/lib/store";
 import { jazzPlayers } from "@/data/mock";
 import { motion } from "framer-motion";
+import { useTheme } from "@/lib/ThemeProvider";
 
 export default function ShotChart() {
   const svgRef = useRef<SVGSVGElement>(null);
@@ -17,6 +18,8 @@ export default function ShotChart() {
     setShotFilterType,
     initializeGame,
   } = useGameStore();
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
 
   const [tooltip, setTooltip] = useState<{
     x: number;
@@ -39,6 +42,9 @@ export default function ShotChart() {
   const totalShots = filteredShots.length;
   const fgPct = totalShots > 0 ? ((madeShots / totalShots) * 100).toFixed(1) : "0.0";
 
+  const courtBg = isDark ? "#1A1D2E" : "#F7F8FA";
+  const courtStroke = isDark ? "#2A2D3E" : "#CBD5E0";
+
   return (
     <div className="px-4 py-3">
       {/* Filters */}
@@ -50,7 +56,7 @@ export default function ShotChart() {
             className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${
               !shotFilterPlayer
                 ? "bg-jazz-navy text-white"
-                : "bg-gray-100 text-text-secondary"
+                : "bg-gray-100 dark:bg-dark-border text-text-secondary dark:text-dark-text-secondary"
             }`}
           >
             All Players
@@ -64,7 +70,7 @@ export default function ShotChart() {
               className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${
                 shotFilterPlayer === p.id
                   ? "bg-jazz-navy text-white"
-                  : "bg-gray-100 text-text-secondary"
+                  : "bg-gray-100 dark:bg-dark-border text-text-secondary dark:text-dark-text-secondary"
               }`}
             >
               {p.name.split(" ").pop()}
@@ -74,30 +80,30 @@ export default function ShotChart() {
 
         {/* Quarter + type filters */}
         <div className="flex gap-2">
-          <div className="flex gap-1 bg-gray-100 rounded-lg p-0.5">
+          <div className="flex gap-1 bg-gray-100 dark:bg-dark-border rounded-lg p-0.5">
             {[null, 1, 2, 3, 4].map((q) => (
               <button
                 key={q ?? "all"}
                 onClick={() => setShotFilterQuarter(q)}
                 className={`px-2.5 py-1 rounded-md text-xs font-semibold transition-colors ${
                   shotFilterQuarter === q
-                    ? "bg-white text-jazz-navy shadow-sm"
-                    : "text-text-secondary"
+                    ? "bg-white dark:bg-dark-surface text-jazz-navy dark:text-jazz-gold shadow-sm"
+                    : "text-text-secondary dark:text-dark-text-secondary"
                 }`}
               >
                 {q ? `Q${q}` : "All"}
               </button>
             ))}
           </div>
-          <div className="flex gap-1 bg-gray-100 rounded-lg p-0.5">
+          <div className="flex gap-1 bg-gray-100 dark:bg-dark-border rounded-lg p-0.5">
             {(["ALL", "2PT", "3PT"] as const).map((t) => (
               <button
                 key={t}
                 onClick={() => setShotFilterType(t)}
                 className={`px-2.5 py-1 rounded-md text-xs font-semibold transition-colors ${
                   shotFilterType === t
-                    ? "bg-white text-jazz-navy shadow-sm"
-                    : "text-text-secondary"
+                    ? "bg-white dark:bg-dark-surface text-jazz-navy dark:text-jazz-gold shadow-sm"
+                    : "text-text-secondary dark:text-dark-text-secondary"
                 }`}
               >
                 {t}
@@ -111,7 +117,7 @@ export default function ShotChart() {
       <div className="flex items-center justify-between mb-3 px-1">
         <div className="text-sm">
           <span className="font-bold">{madeShots}</span>
-          <span className="text-text-secondary">/{totalShots} shots</span>
+          <span className="text-text-secondary dark:text-dark-text-secondary">/{totalShots} shots</span>
         </div>
         <div className="flex items-center gap-3 text-sm">
           <span className="flex items-center gap-1">
@@ -127,7 +133,7 @@ export default function ShotChart() {
       </div>
 
       {/* Court SVG */}
-      <div className="relative bg-jazz-navy/5 rounded-xl overflow-hidden">
+      <div className="relative bg-jazz-navy/5 dark:bg-dark-surface rounded-xl overflow-hidden">
         <svg
           ref={svgRef}
           viewBox="0 0 500 470"
@@ -140,8 +146,8 @@ export default function ShotChart() {
             y="10"
             width="480"
             height="450"
-            fill="#F7F8FA"
-            stroke="#CBD5E0"
+            fill={courtBg}
+            stroke={courtStroke}
             strokeWidth="2"
             rx="4"
           />
@@ -153,7 +159,7 @@ export default function ShotChart() {
             width="160"
             height="190"
             fill="none"
-            stroke="#CBD5E0"
+            stroke={courtStroke}
             strokeWidth="1.5"
           />
 
@@ -163,7 +169,7 @@ export default function ShotChart() {
             cy="200"
             r="60"
             fill="none"
-            stroke="#CBD5E0"
+            stroke={courtStroke}
             strokeWidth="1.5"
             strokeDasharray="5,5"
           />
@@ -190,7 +196,7 @@ export default function ShotChart() {
           <path
             d="M 60 10 L 60 100 Q 60 320 250 350 Q 440 320 440 100 L 440 10"
             fill="none"
-            stroke="#CBD5E0"
+            stroke={courtStroke}
             strokeWidth="1.5"
           />
 
@@ -198,7 +204,7 @@ export default function ShotChart() {
           <path
             d="M 210 10 Q 210 90 250 90 Q 290 90 290 10"
             fill="none"
-            stroke="#CBD5E0"
+            stroke={courtStroke}
             strokeWidth="1"
           />
 
@@ -208,7 +214,7 @@ export default function ShotChart() {
             y1="460"
             x2="490"
             y2="460"
-            stroke="#CBD5E0"
+            stroke={courtStroke}
             strokeWidth="1"
           />
 

@@ -32,7 +32,7 @@ export default function LivePage() {
         <Scoreboard />
 
         {/* Tab Bar */}
-        <div className="bg-white border-b border-gray-200">
+        <div className="bg-white dark:bg-dark-surface border-b border-gray-200 dark:border-dark-border">
           <div className="flex max-w-lg mx-auto">
             {tabs.map((tab) => (
               <button
@@ -40,8 +40,8 @@ export default function LivePage() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex-1 py-3 text-xs font-semibold relative transition-colors ${
                   activeTab === tab.id
-                    ? "text-jazz-navy"
-                    : "text-text-secondary"
+                    ? "text-jazz-navy dark:text-jazz-gold"
+                    : "text-text-secondary dark:text-dark-text-secondary"
                 }`}
               >
                 <span className="flex items-center justify-center gap-1">

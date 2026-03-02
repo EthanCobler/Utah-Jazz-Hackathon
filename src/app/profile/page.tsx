@@ -3,23 +3,24 @@
 import { motion } from "framer-motion";
 import { mockBadges, mockLeaderboard, mockGameRecaps } from "@/data/mock";
 import { useState } from "react";
+import ThemeToggle from "@/components/ThemeToggle";
 
 type Tab = "overview" | "badges" | "leaderboard" | "predictions";
 
 const rarityColors: Record<string, string> = {
-  Common: "bg-gray-100 text-gray-600 border-gray-200",
-  Uncommon: "bg-green-50 text-green-700 border-green-200",
-  Rare: "bg-blue-50 text-blue-700 border-blue-200",
-  Epic: "bg-purple-50 text-purple-700 border-purple-200",
-  Legendary: "bg-amber-50 text-amber-700 border-amber-200",
+  Common: "bg-gray-100 dark:bg-dark-border text-gray-600 dark:text-gray-400 border-gray-200 dark:border-dark-border",
+  Uncommon: "bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400 border-green-200 dark:border-green-800",
+  Rare: "bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 border-blue-200 dark:border-blue-800",
+  Epic: "bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-400 border-purple-200 dark:border-purple-800",
+  Legendary: "bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-400 border-amber-200 dark:border-amber-800",
 };
 
 const tierConfig: Record<string, { color: string; bg: string; next: string; xpNeeded: number }> = {
-  Bronze: { color: "text-amber-700", bg: "bg-amber-100", next: "Silver", xpNeeded: 1000 },
-  Silver: { color: "text-gray-500", bg: "bg-gray-200", next: "Gold", xpNeeded: 5000 },
-  Gold: { color: "text-yellow-600", bg: "bg-yellow-100", next: "Platinum", xpNeeded: 15000 },
-  Platinum: { color: "text-gray-400", bg: "bg-gray-100", next: "Diamond", xpNeeded: 35000 },
-  Diamond: { color: "text-cyan-400", bg: "bg-cyan-50", next: "Max", xpNeeded: 50000 },
+  Bronze: { color: "text-amber-700", bg: "bg-amber-100 dark:bg-amber-900/30", next: "Silver", xpNeeded: 1000 },
+  Silver: { color: "text-gray-500 dark:text-gray-300", bg: "bg-gray-200 dark:bg-gray-700", next: "Gold", xpNeeded: 5000 },
+  Gold: { color: "text-yellow-600 dark:text-yellow-400", bg: "bg-yellow-100 dark:bg-yellow-900/30", next: "Platinum", xpNeeded: 15000 },
+  Platinum: { color: "text-gray-400 dark:text-gray-300", bg: "bg-gray-100 dark:bg-gray-700", next: "Diamond", xpNeeded: 35000 },
+  Diamond: { color: "text-cyan-400", bg: "bg-cyan-50 dark:bg-cyan-900/30", next: "Max", xpNeeded: 50000 },
 };
 
 export default function ProfilePage() {
@@ -52,6 +53,11 @@ export default function ProfilePage() {
       {/* Profile Header */}
       <div className="gradient-jazz rounded-2xl p-5 text-white mb-4 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-32 h-32 bg-jazz-gold/10 rounded-full -translate-y-8 translate-x-8" />
+
+        {/* Theme Toggle */}
+        <div className="absolute top-4 right-4 z-20">
+          <ThemeToggle />
+        </div>
 
         <div className="relative z-10">
           <div className="flex items-center gap-4 mb-4">
@@ -103,24 +109,24 @@ export default function ProfilePage() {
         ].map((stat) => (
           <div
             key={stat.label}
-            className="bg-white rounded-xl p-3 shadow-sm border border-gray-100 text-center"
+            className="bg-white dark:bg-dark-surface rounded-xl p-3 shadow-sm border border-gray-100 dark:border-dark-border text-center"
           >
             <div className="font-mono text-base font-bold">{stat.value}</div>
-            <div className="text-[10px] text-text-secondary">{stat.sub}</div>
+            <div className="text-[10px] text-text-secondary dark:text-dark-text-secondary">{stat.sub}</div>
           </div>
         ))}
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-1 bg-gray-100 rounded-xl p-1 mb-4">
+      <div className="flex gap-1 bg-gray-100 dark:bg-dark-border rounded-xl p-1 mb-4">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
             className={`flex-1 py-2 rounded-lg text-xs font-semibold transition-colors ${
               activeTab === tab.id
-                ? "bg-white text-jazz-navy shadow-sm"
-                : "text-text-secondary"
+                ? "bg-white dark:bg-dark-surface text-jazz-navy dark:text-jazz-gold shadow-sm"
+                : "text-text-secondary dark:text-dark-text-secondary"
             }`}
           >
             {tab.label}
@@ -145,17 +151,17 @@ export default function ProfilePage() {
                   { icon: "🎯", text: "Predicted Jazz win vs Pelicans", xp: "+50 XP", time: "2d ago", color: "text-court-green" },
                   { icon: "🏀", text: "Voted in 4 polls vs Pelicans", xp: "+20 XP", time: "2d ago", color: "text-jazz-gold" },
                   { icon: "🔥", text: "7-game prediction streak!", xp: "+75 XP", time: "2d ago", color: "text-jazz-gold" },
-                  { icon: "🏅", text: "Earned 'Hot Streak' badge", xp: "", time: "5d ago", color: "text-jazz-purple" },
+                  { icon: "🏅", text: "Earned 'Hot Streak' badge", xp: "", time: "5d ago", color: "text-jazz-purple dark:text-jazz-gold" },
                   { icon: "❌", text: "Predicted Jazz win vs Mavericks", xp: "", time: "7d ago", color: "text-alert-red" },
                 ].map((activity, i) => (
                   <div
                     key={i}
-                    className="bg-white rounded-lg p-3 shadow-sm border border-gray-100 flex items-center gap-3"
+                    className="bg-white dark:bg-dark-surface rounded-lg p-3 shadow-sm border border-gray-100 dark:border-dark-border flex items-center gap-3"
                   >
                     <span className="text-lg">{activity.icon}</span>
                     <div className="flex-1">
                       <p className="text-sm font-medium">{activity.text}</p>
-                      <p className="text-xs text-text-secondary">
+                      <p className="text-xs text-text-secondary dark:text-dark-text-secondary">
                         {activity.time}
                       </p>
                     </div>
@@ -172,7 +178,7 @@ export default function ProfilePage() {
             {/* XP Breakdown */}
             <div>
               <h3 className="font-bold text-sm mb-3">XP Sources</h3>
-              <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+              <div className="bg-white dark:bg-dark-surface rounded-xl p-4 shadow-sm border border-gray-100 dark:border-dark-border">
                 {[
                   { label: "Correct Predictions", value: 8150, pct: 36 },
                   { label: "Poll Participation", value: 5680, pct: 25 },
@@ -187,9 +193,9 @@ export default function ProfilePage() {
                         {source.value.toLocaleString()} XP
                       </span>
                     </div>
-                    <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                    <div className="h-1.5 bg-gray-100 dark:bg-dark-border rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-jazz-navy rounded-full"
+                        className="h-full bg-jazz-navy dark:bg-jazz-gold rounded-full"
                         style={{ width: `${source.pct}%` }}
                       />
                     </div>
@@ -237,14 +243,14 @@ export default function ProfilePage() {
               {lockedBadges.map((badge) => (
                 <div
                   key={badge.id}
-                  className="rounded-xl p-3 border border-gray-200 bg-gray-50 opacity-60"
+                  className="rounded-xl p-3 border border-gray-200 dark:border-dark-border bg-gray-50 dark:bg-dark-bg opacity-60"
                 >
                   <div className="text-2xl mb-1 grayscale">{badge.icon}</div>
                   <div className="text-sm font-bold">{badge.name}</div>
-                  <div className="text-[10px] text-text-secondary">
+                  <div className="text-[10px] text-text-secondary dark:text-dark-text-secondary">
                     {badge.description}
                   </div>
-                  <div className="text-[10px] mt-1 font-semibold text-text-secondary">
+                  <div className="text-[10px] mt-1 font-semibold text-text-secondary dark:text-dark-text-secondary">
                     {badge.rarity}
                   </div>
                 </div>
@@ -267,14 +273,14 @@ export default function ProfilePage() {
                     className={`rounded-xl p-3 flex items-center gap-3 ${
                       isUser
                         ? "bg-jazz-gold/10 border-2 border-jazz-gold"
-                        : "bg-white border border-gray-100 shadow-sm"
+                        : "bg-white dark:bg-dark-surface border border-gray-100 dark:border-dark-border shadow-sm"
                     }`}
                   >
                     <div
                       className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
                         entry.rank <= 3
                           ? "bg-jazz-gold text-jazz-navy"
-                          : "bg-gray-100 text-text-secondary"
+                          : "bg-gray-100 dark:bg-dark-border text-text-secondary dark:text-dark-text-secondary"
                       }`}
                     >
                       {entry.rank}
@@ -283,20 +289,20 @@ export default function ProfilePage() {
                       <div className="flex items-center gap-2">
                         <span
                           className={`text-sm font-semibold ${
-                            isUser ? "text-jazz-navy" : ""
+                            isUser ? "text-jazz-navy dark:text-jazz-gold" : ""
                           }`}
                         >
                           {entry.name}
                         </span>
                         <span
                           className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${
-                            tierConfig[entry.tier]?.bg || "bg-gray-100"
+                            tierConfig[entry.tier]?.bg || "bg-gray-100 dark:bg-dark-border"
                           } ${tierConfig[entry.tier]?.color || "text-gray-500"}`}
                         >
                           {entry.tier}
                         </span>
                       </div>
-                      <div className="text-xs text-text-secondary">
+                      <div className="text-xs text-text-secondary dark:text-dark-text-secondary">
                         {entry.accuracy}% accuracy · 🔥 {entry.streak}
                       </div>
                     </div>
@@ -304,7 +310,7 @@ export default function ProfilePage() {
                       <div className="font-mono text-sm font-bold">
                         {entry.xp.toLocaleString()}
                       </div>
-                      <div className="text-[10px] text-text-secondary">XP</div>
+                      <div className="text-[10px] text-text-secondary dark:text-dark-text-secondary">XP</div>
                     </div>
                   </motion.div>
                 );
@@ -326,14 +332,14 @@ export default function ProfilePage() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.03 }}
-                  className="bg-white rounded-xl p-3 shadow-sm border border-gray-100"
+                  className="bg-white dark:bg-dark-surface rounded-xl p-3 shadow-sm border border-gray-100 dark:border-dark-border"
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <div
                         className={`w-6 h-6 rounded-full flex items-center justify-center text-xs ${
                           !predicted
-                            ? "bg-gray-100 text-gray-400"
+                            ? "bg-gray-100 dark:bg-dark-border text-gray-400"
                             : correct
                             ? "bg-court-green/10 text-court-green"
                             : "bg-alert-red/10 text-alert-red"
@@ -345,7 +351,7 @@ export default function ProfilePage() {
                         <div className="text-sm font-medium">
                           vs {game.opponentAbbr}
                         </div>
-                        <div className="text-[10px] text-text-secondary">
+                        <div className="text-[10px] text-text-secondary dark:text-dark-text-secondary">
                           {new Date(game.date).toLocaleDateString("en-US", {
                             month: "short",
                             day: "numeric",

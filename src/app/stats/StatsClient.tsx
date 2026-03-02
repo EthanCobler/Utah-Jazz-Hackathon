@@ -36,7 +36,7 @@ export default function StatsClient({ playerStats }: { playerStats: PlayerStat[]
       {/* Header */}
       <div className="mb-4">
         <h1 className="text-2xl font-extrabold">Team Stats</h1>
-        <p className="text-sm text-text-secondary">2025-26 Regular Season</p>
+        <p className="text-sm text-text-secondary dark:text-dark-text-secondary">2025-26 Regular Season</p>
       </div>
 
       {/* Team Overview Cards */}
@@ -49,12 +49,12 @@ export default function StatsClient({ playerStats }: { playerStats: PlayerStat[]
         ].map((stat) => (
           <div
             key={stat.label}
-            className="bg-white rounded-xl p-3 shadow-sm border border-gray-100 text-center"
+            className="bg-white dark:bg-dark-surface rounded-xl p-3 shadow-sm border border-gray-100 dark:border-dark-border text-center"
           >
-            <div className="font-mono text-lg font-bold text-jazz-navy">
+            <div className="font-mono text-lg font-bold text-jazz-navy dark:text-jazz-gold">
               {stat.value}
             </div>
-            <div className="text-[10px] text-text-secondary font-semibold uppercase">
+            <div className="text-[10px] text-text-secondary dark:text-dark-text-secondary font-semibold uppercase">
               {stat.label}
             </div>
           </div>
@@ -70,7 +70,7 @@ export default function StatsClient({ playerStats }: { playerStats: PlayerStat[]
             className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${
               sortBy === key
                 ? "bg-jazz-navy text-white"
-                : "bg-gray-100 text-text-secondary"
+                : "bg-gray-100 dark:bg-dark-border text-text-secondary dark:text-dark-text-secondary"
             }`}
           >
             {sortLabels[key]}
@@ -96,17 +96,17 @@ export default function StatsClient({ playerStats }: { playerStats: PlayerStat[]
               className="w-full text-left"
             >
               <div
-                className={`bg-white rounded-xl p-4 shadow-sm border transition-all ${
+                className={`bg-white dark:bg-dark-surface rounded-xl p-4 shadow-sm border transition-all ${
                   expandedPlayer === ps.player.id
                     ? "border-jazz-gold"
-                    : "border-gray-100"
+                    : "border-gray-100 dark:border-dark-border"
                 }`}
               >
                 {/* Main row */}
                 <div className="flex items-center gap-3">
                   <div className="flex items-center gap-3 flex-1">
-                    <div className="w-10 h-10 bg-jazz-navy/10 rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-xs font-bold text-jazz-navy">
+                    <div className="w-10 h-10 bg-jazz-navy/10 dark:bg-jazz-navy/30 rounded-full flex items-center justify-center flex-shrink-0">
+                      <span className="text-xs font-bold text-jazz-navy dark:text-jazz-gold">
                         {ps.player.image}
                       </span>
                     </div>
@@ -114,17 +114,17 @@ export default function StatsClient({ playerStats }: { playerStats: PlayerStat[]
                       <div className="font-semibold text-sm">
                         {ps.player.name}
                       </div>
-                      <div className="text-xs text-text-secondary">
+                      <div className="text-xs text-text-secondary dark:text-dark-text-secondary">
                         #{ps.player.number} · {ps.player.position} · {ps.gp} GP
                       </div>
                     </div>
                   </div>
 
                   <div className="text-right">
-                    <div className="font-mono text-lg font-bold text-jazz-navy">
+                    <div className="font-mono text-lg font-bold text-jazz-navy dark:text-jazz-gold">
                       {ps[sortBy].toFixed(1)}
                     </div>
-                    <div className="text-[10px] text-text-secondary uppercase">
+                    <div className="text-[10px] text-text-secondary dark:text-dark-text-secondary uppercase">
                       {sortLabels[sortBy]}
                     </div>
                   </div>
@@ -135,7 +135,7 @@ export default function StatsClient({ playerStats }: { playerStats: PlayerStat[]
                   <motion.div
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
-                    className="mt-3 pt-3 border-t border-gray-100"
+                    className="mt-3 pt-3 border-t border-gray-100 dark:border-dark-border"
                   >
                     <div className="grid grid-cols-4 gap-3">
                       {[
@@ -158,7 +158,7 @@ export default function StatsClient({ playerStats }: { playerStats: PlayerStat[]
                               ? stat.value.toFixed(1)
                               : stat.value}
                           </div>
-                          <div className="text-[10px] text-text-secondary">
+                          <div className="text-[10px] text-text-secondary dark:text-dark-text-secondary">
                             {stat.label}
                           </div>
                         </div>
@@ -188,13 +188,13 @@ export default function StatsClient({ playerStats }: { playerStats: PlayerStat[]
                         },
                       ].map((bar) => (
                         <div key={bar.label}>
-                          <div className="flex justify-between text-[10px] text-text-secondary mb-0.5">
+                          <div className="flex justify-between text-[10px] text-text-secondary dark:text-dark-text-secondary mb-0.5">
                             <span>{bar.label}</span>
                             <span className="font-mono">
                               {bar.value.toFixed(1)}
                             </span>
                           </div>
-                          <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                          <div className="h-1.5 bg-gray-100 dark:bg-dark-border rounded-full overflow-hidden">
                             <motion.div
                               className={`h-full rounded-full ${bar.color}`}
                               initial={{ width: 0 }}
@@ -221,10 +221,10 @@ export default function StatsClient({ playerStats }: { playerStats: PlayerStat[]
       {/* Western Conference Standings */}
       <div className="mt-6 mb-4">
         <h2 className="font-bold text-lg mb-3">Western Conference</h2>
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+        <div className="bg-white dark:bg-dark-surface rounded-xl shadow-sm border border-gray-100 dark:border-dark-border overflow-hidden">
           <table className="w-full text-xs">
             <thead>
-              <tr className="bg-jazz-navy/5">
+              <tr className="bg-jazz-navy/5 dark:bg-jazz-navy/20">
                 <th className="text-left py-2.5 px-3 font-semibold">#</th>
                 <th className="text-left py-2.5 px-3 font-semibold">Team</th>
                 <th className="text-center py-2.5 px-3 font-semibold">W</th>
@@ -247,14 +247,14 @@ export default function StatsClient({ playerStats }: { playerStats: PlayerStat[]
               ].map((team) => (
                 <tr
                   key={team.rank}
-                  className={`border-t border-gray-50 ${
+                  className={`border-t border-gray-50 dark:border-dark-border ${
                     team.highlight
                       ? "bg-jazz-gold/5 font-bold"
                       : ""
                   }`}
                 >
                   <td className="py-2 px-3">{team.rank}</td>
-                  <td className={`py-2 px-3 ${team.highlight ? "text-jazz-navy" : ""}`}>
+                  <td className={`py-2 px-3 ${team.highlight ? "text-jazz-navy dark:text-jazz-gold" : ""}`}>
                     {team.team}
                   </td>
                   <td className="py-2 px-3 text-center font-mono">{team.w}</td>

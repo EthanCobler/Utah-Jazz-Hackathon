@@ -22,17 +22,17 @@ export default function RecapsClient({ recaps }: {recaps: GameRecap[]}) {
       {/* Header */}
       <div className="mb-4">
         <h1 className="text-2xl font-extrabold">Game Recaps</h1>
-        <p className="text-sm text-text-secondary">2025-26 Season</p>
+        <p className="text-sm text-text-secondary dark:text-dark-text-secondary">2025-26 Season</p>
       </div>
 
       {/* Season Record */}
-      <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 mb-4">
+      <div className="bg-white dark:bg-dark-surface rounded-xl p-4 shadow-sm border border-gray-100 dark:border-dark-border mb-4">
         <div className="flex items-center justify-between">
           <div>
-            <div className="text-sm text-text-secondary">Season Record</div>
+            <div className="text-sm text-text-secondary dark:text-dark-text-secondary">Season Record</div>
             <div className="flex items-baseline gap-1">
               <span className="font-mono text-2xl font-bold">{wins}</span>
-              <span className="text-text-secondary">-</span>
+              <span className="text-text-secondary dark:text-dark-text-secondary">-</span>
               <span className="font-mono text-2xl font-bold">{losses}</span>
             </div>
           </div>
@@ -51,7 +51,7 @@ export default function RecapsClient({ recaps }: {recaps: GameRecap[]}) {
 
       {/* Calendar-style game list */}
       <div className="mb-4">
-        <h2 className="font-bold text-sm text-text-secondary uppercase tracking-wider mb-3">
+        <h2 className="font-bold text-sm text-text-secondary dark:text-dark-text-secondary uppercase tracking-wider mb-3">
           {months[0]}
         </h2>
         <div className="space-y-2">
@@ -67,10 +67,10 @@ export default function RecapsClient({ recaps }: {recaps: GameRecap[]}) {
               transition={{ delay: i * 0.03 }}
             >
               <div
-                className={`bg-white rounded-xl p-4 shadow-sm border transition-all ${
+                className={`bg-white dark:bg-dark-surface rounded-xl p-4 shadow-sm border transition-all ${
                   selectedGame === game.id
                     ? "border-jazz-gold"
-                    : "border-gray-100"
+                    : "border-gray-100 dark:border-dark-border"
                 }`}
               >
                 <div className="flex items-center justify-between">
@@ -81,7 +81,7 @@ export default function RecapsClient({ recaps }: {recaps: GameRecap[]}) {
                       }`}
                     />
                     <div>
-                      <div className="text-xs text-text-secondary">
+                      <div className="text-xs text-text-secondary dark:text-dark-text-secondary">
                         {new Date(game.date).toLocaleDateString("en-US", {
                           weekday: "short",
                           month: "short",
@@ -117,10 +117,10 @@ export default function RecapsClient({ recaps }: {recaps: GameRecap[]}) {
                       transition={{ duration: 0.2 }}
                       className="overflow-hidden"
                     >
-                      <div className="mt-3 pt-3 border-t border-gray-100">
+                      <div className="mt-3 pt-3 border-t border-gray-100 dark:border-dark-border">
                         <div className="grid grid-cols-3 gap-3 mb-3">
                           <div className="text-center">
-                            <div className="text-xs text-text-secondary">
+                            <div className="text-xs text-text-secondary dark:text-dark-text-secondary">
                               MVP
                             </div>
                             <div className="text-sm font-semibold">
@@ -128,7 +128,7 @@ export default function RecapsClient({ recaps }: {recaps: GameRecap[]}) {
                             </div>
                           </div>
                           <div className="text-center">
-                            <div className="text-xs text-text-secondary">
+                            <div className="text-xs text-text-secondary dark:text-dark-text-secondary">
                               Margin
                             </div>
                             <div
@@ -143,7 +143,7 @@ export default function RecapsClient({ recaps }: {recaps: GameRecap[]}) {
                             </div>
                           </div>
                           <div className="text-center">
-                            <div className="text-xs text-text-secondary">
+                            <div className="text-xs text-text-secondary dark:text-dark-text-secondary">
                               Attendance
                             </div>
                             <div className="text-sm font-semibold">
@@ -157,7 +157,7 @@ export default function RecapsClient({ recaps }: {recaps: GameRecap[]}) {
                           {mockKeyMoments.slice(0, 3).map((moment) => (
                             <div
                               key={moment.id}
-                              className="bg-bg rounded-lg p-2.5"
+                              className="bg-bg dark:bg-dark-bg rounded-lg p-2.5"
                             >
                               <div className="flex items-center gap-2">
                                 <div
@@ -173,7 +173,7 @@ export default function RecapsClient({ recaps }: {recaps: GameRecap[]}) {
                                   <div className="text-xs font-semibold">
                                     {moment.title}
                                   </div>
-                                  <div className="text-[10px] text-text-secondary">
+                                  <div className="text-[10px] text-text-secondary dark:text-dark-text-secondary">
                                     Q{moment.quarter} · {moment.time}
                                   </div>
                                 </div>

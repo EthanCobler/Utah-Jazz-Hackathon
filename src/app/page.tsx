@@ -77,7 +77,7 @@ export default function HomePage() {
 
       {/* Streak & Challenge Module */}
       <motion.div
-        className="bg-white rounded-xl p-4 shadow-sm border border-gray-100"
+        className="bg-white dark:bg-dark-surface rounded-xl p-4 shadow-sm border border-gray-100 dark:border-dark-border"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
@@ -87,7 +87,7 @@ export default function HomePage() {
             <div className="text-3xl">🔥</div>
             <div>
               <div className="font-bold text-lg">7 Game Streak</div>
-              <div className="text-xs text-text-secondary">
+              <div className="text-xs text-text-secondary dark:text-dark-text-secondary">
                 Your longest: 12 games
               </div>
             </div>
@@ -96,16 +96,16 @@ export default function HomePage() {
             <div className="font-mono font-bold text-jazz-gold text-lg">
               22,850 XP
             </div>
-            <div className="text-xs text-text-secondary">Gold Tier</div>
+            <div className="text-xs text-text-secondary dark:text-dark-text-secondary">Gold Tier</div>
           </div>
         </div>
 
         <div className="mt-3">
-          <div className="flex justify-between text-xs text-text-secondary mb-1">
+          <div className="flex justify-between text-xs text-text-secondary dark:text-dark-text-secondary mb-1">
             <span>Weekly Challenge</span>
             <span>680 / 1,000 XP</span>
           </div>
-          <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+          <div className="h-2 bg-gray-100 dark:bg-dark-border rounded-full overflow-hidden">
             <motion.div
               className="h-full bg-jazz-gold rounded-full"
               initial={{ width: 0 }}
@@ -125,14 +125,14 @@ export default function HomePage() {
         <h2 className="font-bold text-lg mb-3">Community Pulse</h2>
         <div className="flex gap-3 overflow-x-auto pb-2 -mx-4 px-4 scrollbar-hide">
           {/* Trending Poll */}
-          <div className="flex-shrink-0 w-64 bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+          <div className="flex-shrink-0 w-64 bg-white dark:bg-dark-surface rounded-xl p-4 shadow-sm border border-gray-100 dark:border-dark-border">
             <div className="flex items-center gap-2 mb-2">
               <span className="text-xs font-semibold text-jazz-gold bg-jazz-gold/10 px-2 py-0.5 rounded-full">
                 TRENDING
               </span>
             </div>
             <p className="text-sm font-semibold mb-2">{mockPolls[0].question}</p>
-            <div className="flex items-center gap-2 text-xs text-text-secondary">
+            <div className="flex items-center gap-2 text-xs text-text-secondary dark:text-dark-text-secondary">
               <span>{mockPolls[0].totalVotes.toLocaleString()} votes</span>
               <span>·</span>
               <span>Live now</span>
@@ -140,7 +140,7 @@ export default function HomePage() {
           </div>
 
           {/* Community Prediction */}
-          <div className="flex-shrink-0 w-64 bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+          <div className="flex-shrink-0 w-64 bg-white dark:bg-dark-surface rounded-xl p-4 shadow-sm border border-gray-100 dark:border-dark-border">
             <div className="flex items-center gap-2 mb-2">
               <span className="text-xs font-semibold text-court-green bg-court-green/10 px-2 py-0.5 rounded-full">
                 PREDICTION
@@ -149,22 +149,22 @@ export default function HomePage() {
             <p className="text-sm font-semibold mb-2">
               67% predict Jazz win tonight
             </p>
-            <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+            <div className="h-2 bg-gray-100 dark:bg-dark-border rounded-full overflow-hidden">
               <div className="h-full bg-court-green rounded-full" style={{ width: "67%" }} />
             </div>
           </div>
 
           {/* Community Debate */}
-          <div className="flex-shrink-0 w-64 bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+          <div className="flex-shrink-0 w-64 bg-white dark:bg-dark-surface rounded-xl p-4 shadow-sm border border-gray-100 dark:border-dark-border">
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-xs font-semibold text-jazz-purple bg-jazz-purple/10 px-2 py-0.5 rounded-full">
+              <span className="text-xs font-semibold text-jazz-purple dark:text-jazz-gold bg-jazz-purple/10 dark:bg-jazz-gold/10 px-2 py-0.5 rounded-full">
                 DEBATE
               </span>
             </div>
             <p className="text-sm font-semibold mb-2">
               Should Keyonte George start over Sexton?
             </p>
-            <div className="flex items-center gap-2 text-xs text-text-secondary">
+            <div className="flex items-center gap-2 text-xs text-text-secondary dark:text-dark-text-secondary">
               <span>4.2K responses</span>
               <span>·</span>
               <span>54% say yes</span>
@@ -182,7 +182,7 @@ export default function HomePage() {
         >
           <h2 className="font-bold text-lg mb-3">Recent Game</h2>
           <Link href="/recaps">
-            <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+            <div className="bg-white dark:bg-dark-surface rounded-xl p-4 shadow-sm border border-gray-100 dark:border-dark-border">
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-3">
                   <div
@@ -191,7 +191,7 @@ export default function HomePage() {
                     }`}
                   />
                   <div>
-                    <div className="text-sm text-text-secondary">
+                    <div className="text-sm text-text-secondary dark:text-dark-text-secondary">
                       {new Date(lastGame.date).toLocaleDateString("en-US", {
                         month: "short",
                         day: "numeric",
@@ -215,7 +215,7 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-              <div className="flex items-center justify-between text-xs text-text-secondary">
+              <div className="flex items-center justify-between text-xs text-text-secondary dark:text-dark-text-secondary">
                 <span>MVP: {lastGame.mvp}</span>
                 <span className="text-jazz-gold font-semibold">
                   View Full Recap →
@@ -253,17 +253,17 @@ export default function HomePage() {
           ].map((article, i) => (
             <div
               key={i}
-              className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex gap-3"
+              className="bg-white dark:bg-dark-surface rounded-xl p-4 shadow-sm border border-gray-100 dark:border-dark-border flex gap-3"
             >
-              <div className="w-16 h-16 bg-jazz-navy/5 rounded-lg flex-shrink-0 flex items-center justify-center">
+              <div className="w-16 h-16 bg-jazz-navy/5 dark:bg-jazz-navy/20 rounded-lg flex-shrink-0 flex items-center justify-center">
                 <span className="text-2xl">📰</span>
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-semibold line-clamp-2">
                   {article.title}
                 </p>
-                <div className="flex items-center gap-2 mt-1 text-xs text-text-secondary">
-                  <span className="font-medium text-jazz-navy">
+                <div className="flex items-center gap-2 mt-1 text-xs text-text-secondary dark:text-dark-text-secondary">
+                  <span className="font-medium text-jazz-navy dark:text-jazz-gold">
                     {article.source}
                   </span>
                   <span>·</span>
