@@ -234,16 +234,21 @@ export default function StatsClient({ playerStats }: { playerStats: PlayerStat[]
             </thead>
             <tbody>
               {[
-                { rank: 1, team: "OKC Thunder", w: 44, l: 14, gb: "-" },
-                { rank: 2, team: "HOU Rockets", w: 40, l: 18, gb: "4" },
-                { rank: 3, team: "DEN Nuggets", w: 38, l: 20, gb: "6" },
-                { rank: 4, team: "LAL Lakers", w: 38, l: 20, gb: "6" },
-                { rank: 5, team: "MIN T-Wolves", w: 36, l: 22, gb: "8" },
-                { rank: 6, team: "DAL Mavericks", w: 35, l: 23, gb: "9" },
-                { rank: 7, team: "PHX Suns", w: 34, l: 24, gb: "10" },
-                { rank: 8, team: "UTA Jazz", w: 32, l: 26, gb: "12", highlight: true },
-                { rank: 9, team: "SAC Kings", w: 31, l: 27, gb: "13" },
-                { rank: 10, team: "GSW Warriors", w: 30, l: 28, gb: "14" },
+                { rank: 1, team: "OKC Thunder", w: 47, l: 15, gb: "-" },
+                { rank: 2, team: "SAS Spurs", w: 43, l: 17, gb: "3.0" },
+                { rank: 3, team: "HOU Rockets", w: 37, l: 22, gb: "8.5" },
+                { rank: 4, team: "MIN T-Wolves", w: 38, l: 23, gb: "8.5" },
+                { rank: 5, team: "DEN Nuggets", w: 37, l: 24, gb: "9.5" },
+                { rank: 6, team: "LAL Lakers", w: 36, l: 24, gb: "10.0" },
+                { rank: 7, team: "PHX Suns", w: 34, l: 26, gb: "12.0" },
+                { rank: 8, team: "GSW Warriors", w: 31, l: 29, gb: "15.0" },
+                { rank: 9, team: "LAC Clippers", w: 28, l:31, gb: "17.5" },
+                { rank: 10, team: "POR Trailblazers", w: 29, l: 33, gb: "18.0"},
+                { rank: 11, team: "GRI Grizzlies", w: 23, l:36, gb: "22.5" },
+                { rank: 12, team: "DAL Mavericks", w: 21, l: 39, gb: "25.0" },
+                { rank: 13, team: "PEL Pelicans", w: 19, l:43, gb: "28.0" },
+                { rank: 14, team: "UTA Jazz", w: 18, l: 42, gb: "28.0", highlight: true },
+                { rank: 15, team: "SAC Kings", w: 14, l: 48, gb: "33.0" },
               ].map((team) => (
                 <tr
                   key={team.rank}
