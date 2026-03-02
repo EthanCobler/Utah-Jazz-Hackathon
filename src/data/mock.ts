@@ -1,84 +1,4 @@
-// Jazz roster and game mock data
-
-export interface Player {
-  id: number;
-  name: string;
-  number: string;
-  position: string;
-  ppg: number;
-  rpg: number;
-  apg: number;
-  image: string;
-}
-
-export interface Shot {
-  id: string;
-  playerId: number;
-  playerName: string;
-  x: number; // 0-100 percentage of court width
-  y: number; // 0-100 percentage of court height
-  made: boolean;
-  shotType: "2PT" | "3PT" | "FT";
-  quarter: number;
-  time: string;
-  description: string;
-}
-
-export interface PlayByPlayEvent {
-  id: string;
-  time: string;
-  quarter: number;
-  type: "basket" | "foul" | "turnover" | "substitution" | "timeout" | "rebound" | "steal" | "block";
-  team: "jazz" | "opponent";
-  description: string;
-  score: { jazz: number; opponent: number };
-  isScoring: boolean;
-}
-
-export interface Poll {
-  id: string;
-  question: string;
-  options: { id: string; label: string; votes: number; image?: string }[];
-  status: "active" | "completed";
-  correctOptionId?: string;
-  expiresIn?: number;
-  totalVotes: number;
-  xpReward: number;
-  context: string;
-}
-
-export interface KeyMoment {
-  id: string;
-  quarter: number;
-  time: string;
-  significance: number;
-  title: string;
-  description: string;
-  playerName: string;
-}
-
-export interface Badge {
-  id: string;
-  name: string;
-  description: string;
-  icon: string;
-  rarity: "Common" | "Uncommon" | "Rare" | "Epic" | "Legendary";
-  earned: boolean;
-  earnedDate?: string;
-}
-
-export interface GameRecap {
-  id: string;
-  date: string;
-  opponent: string;
-  opponentAbbr: string;
-  jazzScore: number;
-  opponentScore: number;
-  win: boolean;
-  mvp: string;
-  keyMoments: KeyMoment[];
-  attendance: number;
-}
+import type { Player, Shot, PlayByPlayEvent, Poll, KeyMoment, Badge, GameRecap, LeaderboardEntry, PlayerStat } from "@/lib/types";
 
 // Jazz Players (2025-26 roster)
 export const jazzPlayers: Player[] = [
@@ -374,16 +294,6 @@ export const mockGameRecaps: GameRecap[] = [
   { id: "g12", date: "2026-02-27", opponent: "New Orleans Pelicans", opponentAbbr: "NOP", jazzScore: 116, opponentScore: 108, win: true, mvp: "Lauri Markkanen", keyMoments: [], attendance: 18306 },
 ];
 
-// Leaderboard
-export interface LeaderboardEntry {
-  rank: number;
-  name: string;
-  xp: number;
-  tier: string;
-  accuracy: number;
-  streak: number;
-}
-
 export const mockLeaderboard: LeaderboardEntry[] = [
   { rank: 1, name: "JazzFanatic801", xp: 38420, tier: "Diamond", accuracy: 72, streak: 14 },
   { rank: 2, name: "NoteWorthy23", xp: 36115, tier: "Diamond", accuracy: 69, streak: 11 },
@@ -396,23 +306,6 @@ export const mockLeaderboard: LeaderboardEntry[] = [
   { rank: 9, name: "BearLakeFan", xp: 19870, tier: "Gold", accuracy: 59, streak: 9 },
   { rank: 10, name: "WasatchHoops", xp: 18650, tier: "Gold", accuracy: 58, streak: 2 },
 ];
-
-// Player stats for stats page
-export interface PlayerStat {
-  player: Player;
-  gp: number;
-  mpg: number;
-  fgPct: number;
-  threePct: number;
-  ftPct: number;
-  rpg: number;
-  apg: number;
-  spg: number;
-  bpg: number;
-  ppg: number;
-  per: number;
-  ts: number;
-}
 
 export const mockPlayerStats: PlayerStat[] = [
   { player: jazzPlayers[0], gp: 58, mpg: 34.2, fgPct: 49.8, threePct: 39.2, ftPct: 88.1, rpg: 8.4, apg: 2.1, spg: 0.8, bpg: 0.5, ppg: 25.6, per: 24.1, ts: 62.3 },
