@@ -187,7 +187,7 @@ export default function HomePage() {
               </span>
             </div>
             <p className="text-sm font-semibold mb-2">
-              Should Keyonte George start over Sexton?
+              Should Keyonte George start over Love?
             </p>
             <div className="flex items-center gap-2 text-xs text-text-secondary dark:text-dark-text-secondary">
               <span>4.2K responses</span>
