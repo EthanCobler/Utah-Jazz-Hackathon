@@ -25,9 +25,9 @@ export default function StatsClient({ playerStats }: { playerStats: PlayerStat[]
 
   // Team averages
   const teamAvg = {
-    ppg: sorted.reduce((s, p) => s + p.ppg, 0) / sorted.length,
-    rpg: sorted.reduce((s, p) => s + p.rpg, 0) / sorted.length,
-    apg: sorted.reduce((s, p) => s + p.apg, 0) / sorted.length,
+    ppg: sorted.reduce((s, p) => s + p.ppg, 0),
+    rpg: sorted.reduce((s, p) => s + p.rpg, 0),
+    apg: sorted.reduce((s, p) => s + p.apg, 0),
     fgPct: sorted.reduce((s, p) => s + p.fgPct, 0) / sorted.length,
   };
 
