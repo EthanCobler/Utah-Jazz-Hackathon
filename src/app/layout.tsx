@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import BottomNav from "@/components/BottomNav";
 import { ThemeProvider } from "@/lib/ThemeProvider";
+import { AuthProvider } from "@/lib/AuthProvider";
 
 export const metadata: Metadata = {
   title: "Jazz Game-Day Hub",
@@ -35,8 +36,10 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-bg dark:bg-dark-bg dark:text-dark-text-primary">
         <ThemeProvider>
-          <main className="w-full max-w-screen-xl px-4 mx-auto pb-20 sm:px-6 lg:px-8">{children}</main>
-          <BottomNav />
+          <AuthProvider>
+            <main className="w-full max-w-screen-xl px-4 mx-auto pb-20 sm:px-6 lg:px-8">{children}</main>
+            <BottomNav />
+          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>

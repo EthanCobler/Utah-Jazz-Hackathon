@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { mockGameRecaps, mockPolls } from "@/data/mock";
+import { useAuth } from "@/lib/AuthProvider";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -11,6 +12,8 @@ const fadeInUp = {
 };
 
 export default function HomePage() {
+  const { isAuthenticated } = useAuth();
+
   const nextGame = {
     opponent: "Los Angeles Lakers",
     opponentAbbr: "LAL",
@@ -63,13 +66,13 @@ export default function HomePage() {
             </div>
           </div>
 
-          <Link href="/live">
+          <Link href={isAuthenticated ? "/live" : "/profile"}>
             <motion.button
               className="w-full bg-jazz-gold text-jazz-navy font-bold py-3 rounded-xl text-sm"
               whileTap={{ scale: 0.97 }}
               whileHover={{ scale: 1.01 }}
             >
-              Lock In Your Prediction
+              {isAuthenticated ? "Lock In Your Prediction" : "Sign In to Predict"}
             </motion.button>
           </Link>
         </div>
@@ -82,38 +85,60 @@ export default function HomePage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
       >
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="text-3xl">🔥</div>
-            <div>
-              <div className="font-bold text-lg">7 Game Streak</div>
-              <div className="text-xs text-text-secondary dark:text-dark-text-secondary">
-                Your longest: 12 games
+        {isAuthenticated ? (
+          <>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="text-3xl">🔥</div>
+                <div>
+                  <div className="font-bold text-lg">7 Game Streak</div>
+                  <div className="text-xs text-text-secondary dark:text-dark-text-secondary">
+                    Your longest: 12 games
+                  </div>
+                </div>
+              </div>
+              <div className="text-right">
+                <div className="font-mono font-bold text-jazz-gold text-lg">
+                  22,850 XP
+                </div>
+                <div className="text-xs text-text-secondary dark:text-dark-text-secondary">Gold Tier</div>
               </div>
             </div>
-          </div>
-          <div className="text-right">
-            <div className="font-mono font-bold text-jazz-gold text-lg">
-              22,850 XP
-            </div>
-            <div className="text-xs text-text-secondary dark:text-dark-text-secondary">Gold Tier</div>
-          </div>
-        </div>
 
-        <div className="mt-3">
-          <div className="flex justify-between text-xs text-text-secondary dark:text-dark-text-secondary mb-1">
-            <span>Weekly Challenge</span>
-            <span>680 / 1,000 XP</span>
-          </div>
-          <div className="h-2 bg-gray-100 dark:bg-dark-border rounded-full overflow-hidden">
-            <motion.div
-              className="h-full bg-jazz-gold rounded-full"
-              initial={{ width: 0 }}
-              animate={{ width: "68%" }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            />
-          </div>
-        </div>
+            <div className="mt-3">
+              <div className="flex justify-between text-xs text-text-secondary dark:text-dark-text-secondary mb-1">
+                <span>Weekly Challenge</span>
+                <span>680 / 1,000 XP</span>
+              </div>
+              <div className="h-2 bg-gray-100 dark:bg-dark-border rounded-full overflow-hidden">
+                <motion.div
+                  className="h-full bg-jazz-gold rounded-full"
+                  initial={{ width: 0 }}
+                  animate={{ width: "68%" }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                />
+              </div>
+            </div>
+          </>
+        ) : (
+          <Link href="/profile" className="flex items-center gap-4">
+            <div className="w-12 h-12 bg-jazz-gold/10 rounded-full flex items-center justify-center flex-shrink-0">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-jazz-gold">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+            </div>
+            <div className="flex-1">
+              <div className="font-bold text-sm">Sign in to track your streak</div>
+              <div className="text-xs text-text-secondary dark:text-dark-text-secondary">
+                Earn XP, unlock badges, and climb the leaderboard
+              </div>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-jazz-gold flex-shrink-0">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </Link>
+        )}
       </motion.div>
 
       {/* Community Pulse */}

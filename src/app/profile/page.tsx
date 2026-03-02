@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { mockBadges, mockLeaderboard, mockGameRecaps } from "@/data/mock";
 import { useState } from "react";
 import ThemeToggle from "@/components/ThemeToggle";
+import { useAuth } from "@/lib/AuthProvider";
+import AuthScreen from "@/components/AuthScreen";
 
 type Tab = "overview" | "badges" | "leaderboard" | "predictions";
 
@@ -24,16 +26,20 @@ const tierConfig: Record<string, { color: string; bg: string; next: string; xpNe
 };
 
 export default function ProfilePage() {
+  const { user, isAuthenticated, hydrated, logout } = useAuth();
   const [activeTab, setActiveTab] = useState<Tab>("overview");
 
-  const userXP = 22850;
-  const userTier = "Gold";
-  const streak = 7;
-  const totalPredictions = 156;
-  const correctPredictions = 103;
-  const accuracy = Math.round((correctPredictions / totalPredictions) * 100);
-  const pollsVoted = 312;
-  const gamesEngaged = 48;
+  if (!hydrated) return null;
+  if (!isAuthenticated) return <AuthScreen />;
+
+  const userXP = user?.xp ?? 22850;
+  const userTier = user?.tier ?? "Gold";
+  const streak = user?.streak ?? 7;
+  const totalPredictions = user?.totalPredictions ?? 156;
+  const correctPredictions = user?.correctPredictions ?? 103;
+  const accuracy = totalPredictions > 0 ? Math.round((correctPredictions / totalPredictions) * 100) : 0;
+  const pollsVoted = user?.pollsVoted ?? 312;
+  const gamesEngaged = user?.gamesEngaged ?? 48;
 
   const tier = tierConfig[userTier];
   const progress = ((userXP - 5000) / (15000 - 5000)) * 100;
@@ -54,25 +60,39 @@ export default function ProfilePage() {
       <div className="gradient-jazz rounded-2xl p-5 text-white mb-4 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-32 h-32 bg-jazz-gold/10 rounded-full -translate-y-8 translate-x-8" />
 
-        {/* Theme Toggle */}
-        <div className="absolute top-4 right-4 z-20">
+        {/* Theme Toggle & Logout */}
+        <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
           <ThemeToggle />
+          <motion.button
+            onClick={logout}
+            whileTap={{ scale: 0.9 }}
+            className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors touch-manipulation"
+            title="Log out"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+              <polyline points="16 17 21 12 16 7" />
+              <line x1="21" y1="12" x2="9" y2="12" />
+            </svg>
+          </motion.button>
         </div>
 
         <div className="relative z-10">
           <div className="flex items-center gap-4 mb-4">
             <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-              <span className="text-2xl font-extrabold">JF</span>
+              <span className="text-2xl font-extrabold">{user?.avatarInitials ?? "JF"}</span>
             </div>
             <div>
-              <h1 className="text-xl font-extrabold">JazzFan23</h1>
+              <h1 className="text-xl font-extrabold">{user?.displayName ?? "JazzFan23"}</h1>
               <div className="flex items-center gap-2">
                 <span
                   className={`text-xs font-bold px-2 py-0.5 rounded-full ${tier.bg} ${tier.color}`}
                 >
                   {userTier}
                 </span>
-                <span className="text-xs text-white/70">Rank #7</span>
+                <span className="text-xs text-white/70">
+                  {(user?.rank ?? 7) > 0 ? `Rank #${user?.rank ?? 7}` : "Unranked"}
+                </span>
               </div>
             </div>
           </div>
