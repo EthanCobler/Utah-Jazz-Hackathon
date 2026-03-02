@@ -175,6 +175,11 @@ export async function fetchJazzPlayerStats(): Promise<PlayerStat[]> {
   }
 }
 
+function estimateMVP(jazzScore: number): string {
+  if (jazzScore >= 120) return "Lauri Markkanen";
+  if (jazzScore >= 100) return Math.random() > 0.5 ? "Lauri Markkanen" : "Keyonte George";
+  return "Kevin Love";
+}
 
 // ------------------------------------------------------------
 // fetchJazzGames
@@ -207,7 +212,7 @@ export async function fetchJazzGames(season = CURRENT_SEASON): Promise<GameRecap
           jazzScore,
           opponentScore: oppScore,
           win: jazzScore > oppScore,
-          mvp: "",          // API doesn't provide this, keep blank or fill from mock
+          mvp: estimateMVP(jazzScore),          // API doesn't provide this, keep blank or fill from mock
           keyMoments: [],   // Same — generated data
           attendance: 18306, // Delta Center capacity, API doesn't provide this
         };

@@ -143,8 +143,8 @@ export const mockPolls: Poll[] = [
     question: "Who scores the next bucket?",
     options: [
       { id: "o1", label: "Lauri Markkanen", votes: 1247 },
-      { id: "o2", label: "Collin Sexton", votes: 892 },
-      { id: "o3", label: "Jordan Clarkson", votes: 634 },
+      { id: "o2", label: "Keyonte George", votes: 892 },
+      { id: "o3", label: "Ace Bailey", votes: 634 },
       { id: "o4", label: "Someone else", votes: 423 },
     ],
     status: "active",
@@ -187,7 +187,7 @@ export const mockPolls: Poll[] = [
     options: [
       { id: "o1", label: "Lauri Markkanen", votes: 3245 },
       { id: "o2", label: "LeBron James", votes: 2890 },
-      { id: "o3", label: "Collin Sexton", votes: 1234 },
+      { id: "o3", label: "Keyonte George", votes: 1234 },
     ],
     status: "completed",
     correctOptionId: "o1",
@@ -222,9 +222,9 @@ export const mockKeyMoments: KeyMoment[] = [
     quarter: 2,
     time: "8:15",
     significance: 9,
-    title: "Sexton's Explosive Run",
-    description: "Collin Sexton scores 8 consecutive points in a two-minute span, including back-to-back pull-up threes that push the Jazz lead to 12. The Lakers call a timeout to stop the bleeding.",
-    playerName: "Collin Sexton",
+    title: "George's Explosive Run",
+    description: "Keyonte George scores 8 consecutive points in a two-minute span, including back-to-back pull-up threes that push the Jazz lead to 12. The Lakers call a timeout to stop the bleeding.",
+    playerName: "Keyonte George",
   },
   {
     id: "km-4",
@@ -232,8 +232,8 @@ export const mockKeyMoments: KeyMoment[] = [
     time: "1:03",
     significance: 7,
     title: "Buzzer-Beater Attempt",
-    description: "Jordan Clarkson launches a halfcourt heave at the halftime buzzer that rattles in and out. The near-miss sends the crowd into a frenzy as the Jazz head to the locker room up 8.",
-    playerName: "Jordan Clarkson",
+    description: "Ace Bailey launches a halfcourt heave at the halftime buzzer that rattles in and out. The near-miss sends the crowd into a frenzy as the Jazz head to the locker room up 8.",
+    playerName: "Ace Bailey",
   },
   {
     id: "km-5",
@@ -281,16 +281,16 @@ export const mockBadges: Badge[] = [
 // Game recaps for calendar
 export const mockGameRecaps: GameRecap[] = [
   { id: "g1", date: "2026-02-01", opponent: "Sacramento Kings", opponentAbbr: "SAC", jazzScore: 118, opponentScore: 109, win: true, mvp: "Lauri Markkanen", keyMoments: [], attendance: 18306 },
-  { id: "g2", date: "2026-02-03", opponent: "Portland Trail Blazers", opponentAbbr: "POR", jazzScore: 105, opponentScore: 112, win: false, mvp: "Collin Sexton", keyMoments: [], attendance: 18306 },
+  { id: "g2", date: "2026-02-03", opponent: "Portland Trail Blazers", opponentAbbr: "POR", jazzScore: 105, opponentScore: 112, win: false, mvp: "Keyonte George", keyMoments: [], attendance: 18306 },
   { id: "g3", date: "2026-02-05", opponent: "Denver Nuggets", opponentAbbr: "DEN", jazzScore: 121, opponentScore: 115, win: true, mvp: "Lauri Markkanen", keyMoments: [], attendance: 18306 },
-  { id: "g4", date: "2026-02-08", opponent: "Phoenix Suns", opponentAbbr: "PHX", jazzScore: 99, opponentScore: 108, win: false, mvp: "Jordan Clarkson", keyMoments: [], attendance: 18306 },
+  { id: "g4", date: "2026-02-08", opponent: "Phoenix Suns", opponentAbbr: "PHX", jazzScore: 99, opponentScore: 108, win: false, mvp: "Ace Bailey", keyMoments: [], attendance: 18306 },
   { id: "g5", date: "2026-02-10", opponent: "Golden State Warriors", opponentAbbr: "GSW", jazzScore: 127, opponentScore: 119, win: true, mvp: "Keyonte George", keyMoments: [], attendance: 18306 },
   { id: "g6", date: "2026-02-12", opponent: "Memphis Grizzlies", opponentAbbr: "MEM", jazzScore: 115, opponentScore: 110, win: true, mvp: "Lauri Markkanen", keyMoments: [], attendance: 18306 },
-  { id: "g7", date: "2026-02-15", opponent: "Oklahoma City Thunder", opponentAbbr: "OKC", jazzScore: 102, opponentScore: 118, win: false, mvp: "Collin Sexton", keyMoments: [], attendance: 18306 },
+  { id: "g7", date: "2026-02-15", opponent: "Oklahoma City Thunder", opponentAbbr: "OKC", jazzScore: 102, opponentScore: 118, win: false, mvp: "Kyle Filipowski", keyMoments: [], attendance: 18306 },
   { id: "g8", date: "2026-02-17", opponent: "Minnesota Timberwolves", opponentAbbr: "MIN", jazzScore: 113, opponentScore: 107, win: true, mvp: "Walker Kessler", keyMoments: [], attendance: 18306 },
   { id: "g9", date: "2026-02-20", opponent: "San Antonio Spurs", opponentAbbr: "SAS", jazzScore: 124, opponentScore: 116, win: true, mvp: "Lauri Markkanen", keyMoments: [], attendance: 18306 },
   { id: "g10", date: "2026-02-22", opponent: "Dallas Mavericks", opponentAbbr: "DAL", jazzScore: 108, opponentScore: 114, win: false, mvp: "Keyonte George", keyMoments: [], attendance: 18306 },
-  { id: "g11", date: "2026-02-25", opponent: "Houston Rockets", opponentAbbr: "HOU", jazzScore: 119, opponentScore: 105, win: true, mvp: "Collin Sexton", keyMoments: [], attendance: 18306 },
+  { id: "g11", date: "2026-02-25", opponent: "Houston Rockets", opponentAbbr: "HOU", jazzScore: 119, opponentScore: 105, win: true, mvp: "Cody Williams", keyMoments: [], attendance: 18306 },
   { id: "g12", date: "2026-02-27", opponent: "New Orleans Pelicans", opponentAbbr: "NOP", jazzScore: 116, opponentScore: 108, win: true, mvp: "Lauri Markkanen", keyMoments: [], attendance: 18306 },
 ];
 
