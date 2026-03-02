@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { useGameStore } from "./store";
 import { jazzPlayers, opponentPlayers } from "@/data/mock";
-import type { PlayByPlayEvent, Shot } from "@/lib/types";
+import type { PlayByPlayEvent, Shot } from "@/data/mock";
 
 export function useGameSimulation() {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
