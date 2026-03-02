@@ -15,12 +15,12 @@ export default function HomePage() {
   const { isAuthenticated } = useAuth();
 
   const nextGame = {
-    opponent: "Los Angeles Lakers",
-    opponentAbbr: "LAL",
+    opponent: "Denver Nuggets",
+    opponentAbbr: "DEN",
     date: "Tonight",
     time: "7:00 PM MT",
-    record: "32-26",
-    opponentRecord: "38-20",
+    record: "18-42",
+    opponentRecord: "37-24",
   };
 
   const lastGame = mockGameRecaps[mockGameRecaps.length - 1];

@@ -12,13 +12,13 @@ export const jazzPlayers: Player[] = [
   { id: 8, name: "Brice Sensabaugh", number: "28", position: "SF", ppg: 12.8, rpg: 3.0, apg: 1.5, image: "BS" },
 ];
 
-// Opponent Players (Lakers)
+// Opponent Players (Nuggets)
 export const opponentPlayers: Player[] = [
-  { id: 101, name: "LeBron James", number: "23", position: "SF", ppg: 24.8, rpg: 7.1, apg: 8.2, image: "LJ" },
-  { id: 102, name: "Anthony Davis", number: "3", position: "PF", ppg: 26.1, rpg: 11.5, apg: 3.1, image: "AD" },
-  { id: 103, name: "Austin Reaves", number: "15", position: "SG", ppg: 17.4, rpg: 4.3, apg: 5.6, image: "AR" },
-  { id: 104, name: "D'Angelo Russell", number: "1", position: "PG", ppg: 14.2, rpg: 3.1, apg: 6.3, image: "DR" },
-  { id: 105, name: "Rui Hachimura", number: "28", position: "PF", ppg: 12.8, rpg: 5.2, apg: 1.4, image: "RH" },
+  { id: 101, name: "Nikola Jokic", number: "15", position: "C", ppg: 24.8, rpg: 7.1, apg: 8.2, image: "NJ" },
+  { id: 102, name: "Jamal Murray", number: "27", position: "G", ppg: 26.1, rpg: 11.5, apg: 3.1, image: "JM" },
+  { id: 103, name: "Aaron Gordon", number: "32", position: "F", ppg: 17.4, rpg: 4.3, apg: 5.6, image: "AG" },
+  { id: 104, name: "Bruce Brown", number: "11", position: "G", ppg: 14.2, rpg: 3.1, apg: 6.3, image: "BB" },
+  { id: 105, name: "Christian Braun", number: "00", position: "G", ppg: 12.8, rpg: 5.2, apg: 1.4, image: "CB" },
 ];
 
 // Generate shot chart data
@@ -158,7 +158,7 @@ export const mockPolls: Poll[] = [
     question: "Will the Jazz hold their lead at halftime?",
     options: [
       { id: "o1", label: "Yes, Jazz hold", votes: 2134 },
-      { id: "o2", label: "No, Lakers take it", votes: 1567 },
+      { id: "o2", label: "No, Nuggets take it", votes: 1567 },
     ],
     status: "completed",
     correctOptionId: "o1",
@@ -186,7 +186,7 @@ export const mockPolls: Poll[] = [
     question: "Player of the Half?",
     options: [
       { id: "o1", label: "Lauri Markkanen", votes: 3245 },
-      { id: "o2", label: "LeBron James", votes: 2890 },
+      { id: "o2", label: "Nikola Jokic", votes: 2890 },
       { id: "o3", label: "Keyonte George", votes: 1234 },
     ],
     status: "completed",
@@ -213,8 +213,8 @@ export const mockKeyMoments: KeyMoment[] = [
     quarter: 1,
     time: "0:45",
     significance: 7,
-    title: "Kessler Swats LeBron",
-    description: "Walker Kessler emphatically blocks LeBron James at the rim on a fast break, sending the ball into the third row. The Jazz transition immediately and Sexton finishes with a floater in the lane.",
+    title: "Kessler Swats Murray",
+    description: "Walker Kessler emphatically blocks Jamal Murray at the rim on a fast break, sending the ball into the third row. The Jazz transition immediately and George finishes with a floater in the lane.",
     playerName: "Walker Kessler",
   },
   {
@@ -223,7 +223,7 @@ export const mockKeyMoments: KeyMoment[] = [
     time: "8:15",
     significance: 9,
     title: "George's Explosive Run",
-    description: "Keyonte George scores 8 consecutive points in a two-minute span, including back-to-back pull-up threes that push the Jazz lead to 12. The Lakers call a timeout to stop the bleeding.",
+    description: "Keyonte George scores 8 consecutive points in a two-minute span, including back-to-back pull-up threes that push the Jazz lead to 12. The Nuggets call a timeout to stop the bleeding.",
     playerName: "Keyonte George",
   },
   {
@@ -240,9 +240,9 @@ export const mockKeyMoments: KeyMoment[] = [
     quarter: 3,
     time: "5:22",
     significance: 8,
-    title: "Lakers Storm Back",
-    description: "LeBron James finds Anthony Davis for a thunderous alley-oop, completing a 10-2 Lakers run that cuts the lead to just 2 points. The momentum has completely shifted.",
-    playerName: "LeBron James",
+    title: "Nuggets Storm Back",
+    description: "Nikola Jokic finds Aaron Gordon for a thunderous alley-oop, completing a 10-2 Nuggets run that cuts the lead to just 2 points. The momentum has completely shifted.",
+    playerName: "NIkola Jokic",
   },
   {
     id: "km-6",
@@ -250,7 +250,7 @@ export const mockKeyMoments: KeyMoment[] = [
     time: "0:15",
     significance: 9,
     title: "Clutch Markkanen Three",
-    description: "With the shot clock winding down, Markkanen rises over Rui Hachimura and buries a deep three-pointer to beat the third-quarter buzzer, pushing the lead back to 7.",
+    description: "With the shot clock winding down, Markkanen rises over Christian Braun and buries a deep three-pointer to beat the third-quarter buzzer, pushing the lead back to 7.",
     playerName: "Lauri Markkanen",
   },
   {
@@ -259,7 +259,7 @@ export const mockKeyMoments: KeyMoment[] = [
     time: "2:15",
     significance: 10,
     title: "Dagger by Keyonte George",
-    description: "Keyonte George crosses over D'Angelo Russell, steps into a pull-up three from 28 feet, and splashes it to put the Jazz up 9 with 2:15 remaining. The Delta Center crowd is on their feet—the game is all but sealed.",
+    description: "Keyonte George crosses over Nikola Jokic, steps into a pull-up three from 28 feet, and splashes it to put the Jazz up 9 with 2:15 remaining. The Delta Center crowd is on their feet—the game is all but sealed.",
     playerName: "Keyonte George",
   },
 ];

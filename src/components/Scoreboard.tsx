@@ -116,7 +116,7 @@ export default function Scoreboard() {
           </motion.div>
           <div className="text-center">
             <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center">
-              <span className="text-xs font-extrabold">LAL</span>
+              <span className="text-xs font-extrabold">DEN</span>
             </div>
           </div>
         </div>
